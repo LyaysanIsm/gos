@@ -1,0 +1,26 @@
+Randonm rnd = new Random();
+
+int n = 10;
+int[][] matrix = new int[n][n];
+
+// Допустим количество рёбер, можно зарандомить
+int m = 5;
+
+for (int k = 0; k < m; k++)
+{
+int i = rnd.Next() % n;
+int j = rnd.Next() % n;
+
+// Если выпала главная ось, т.е. путь от вершины к ней самой, т.е. петля
+if (i == j)
+continue;
+// Если тут уже есть путь
+if (matrix[i][j] != 0)
+continue;
+
+int l = rnd.Next();
+
+matrix[i][j] = l;
+// Если граф ориентированный
+matrix[j][i] = l;
+}
